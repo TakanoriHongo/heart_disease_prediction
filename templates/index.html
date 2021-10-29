@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Title
+{% endblock %}
+
+{% block headline %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<p>{{ message }}</p>
+<a href="/predict" role="button">予測ページ</a>
+{% for post in posts %}
+<p>{{ post.created_at }}</p>
+{% endfor %}
+{% endblock %}
+
+{% block footer %}
+copyright 2021 Takanori_Hongo
+{% endblock %}

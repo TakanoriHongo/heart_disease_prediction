@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block title %}
+心臓病予測
+{% endblock %}
+
+{% block headline %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<p>{{ message }}</p>
+<form method="post" action="/predict">
+<ul>
+    <li>
+        <p>年齢：<input type="number" name="age" placeholder="0" value="{{ age }}"  min="0">歳</p>
+    </li>
+    <li><p>貧血ですか?：
+        <select name="anaemia" value="{{ anaemia }}">
+            <option value="anaemia_yes">はい</option>
+            <option value="anaemia_no">いいえ</option>
+        </select></p>
+    </li>
+    <li>
+        <p>クレアチンキナーゼ量：<input type="number" name="creatinine_phosphokinase" placeholder="0" value="{{ creatinine_phosphokinase }}" step="1" max="1000000" min="0">IU/L</p>
+    </li>
+    <p>※クレアチンキナーゼ：筋肉に含まれる酵素で、筋肉に障害があると多くなる</p>
+    <li><p>糖尿病ですか?：
+        <select name="diabetes" value="{{ diabetes }}">
+            <option value="diabetes_yes">はい</option>
+            <option value="diabetes_no">いいえ</option>
+        </select></p>
+    </li>
+    <li>
+        <p>駆出率：<input type="number" name="ejection_fraction" placeholder="0" value="{{ ejection_fraction }}" max="1000" min="0">％</p>
+    </li>
+    <p>※心臓の機能評価の指標のひとつ(正常値は50〜80％)</p>
+    <li><p>高血圧ですか?：
+        <select name="high_blood_pressure" value="{{ high_blood_pressure }}">
+            <option value="high_blood_pressure_yes">はい</option>
+            <option value="high_blood_pressure_no">いいえ</option>
+        </select></p>
+    </li>
+    <li>
+        <p>血小板量：<input type="number" name="platelets" placeholder="0" value="{{ platelets }}" step="0.01" max="100000000" min="0">/μm</p>
+    </li>
+    <p>※血小板：血液に含まれる細胞成分の一種で、血栓の形成に重要な役割を果たす</p>
+    <li>
+        <p>血清クレアチニン量：<input type="number" name="serum_creatinine" placeholder="0" value="{{ serum_creatinine }}" step="0.1" max="100" min="0">mg/dL</p>
+    </li>
+    <p>※血清クレアチニン：筋肉で作られる老廃物</p>
+    <li>
+        <p>血清ナトリウム量：<input type="number" name="serum_sodium" placeholder="0" value="{{ serum_sodium }}"  max="10000" min="0">mEg/L</p>
+    </li>
+    <li><p>性別：
+        <select name="sex" value="{{ sex }}">
+            <option value="male">男</option>
+            <option value="female">女</option>
+        </select></p>
+    </li>
+    <li><p>喫煙者ですか?：
+        <select name="smoking" value="{{ smoking }}">
+            <option value="smoking_yes">はい</option>
+            <option value="smoking_no">いいえ</option>
+        </select></p>
+    </li>
+</ul>
+<input type="submit">
+</form>
+{% endblock %}
+
+{% block footer %}
+copyright 2021 Takanori_Hongo
+{% endblock %}
