@@ -11,9 +11,6 @@ Title
 {% block content %}
 <p>{{ message }}</p>
 <a href="/predict" role="button">予測ページ</a>
-{% for post in posts %}
-<p>{{ post.created_at }}</p>
-{% endfor %}
 {% endblock %}
 
 {% block footer %}
