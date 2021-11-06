@@ -42,7 +42,7 @@ class User(db.Model):
 def index():
     if request.method == 'GET':
         posts = User.query.all()
-        return render_template('index.html', title='心臓病予測アプリ', message='あなたの血液情報から心臓病に罹患するか診断します。', posts=posts)
+        return render_template('index.html', title='心臓病予測アプリ', message='あなたの血液情報から心臓病に罹患するか診断します。')
 
 @app.route('/predict', methods=['GET','POST'])
 def predict():
